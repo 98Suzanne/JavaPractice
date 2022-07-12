@@ -38,6 +38,10 @@ public class ArrayExercise {
 			System.out.println(i);
 		}
 		
+		System.out.println(myArrayList.contains("Two")); // prints true
+		System.out.println(myArrayList.indexOf("Three")); // prints 2
+		System.out.println(myArrayList.get(2)); // gets element at index 2, which is "Three"
+		
 		ListIterator<String> iterator = myArrayList.listIterator(); // print elements in an array list using ListIterator
 		while (iterator.hasNext()) {								
 			System.out.println(iterator.next());
@@ -59,6 +63,7 @@ public class ArrayExercise {
 		for (StringBuilder i : myList) {
 			System.out.println(i);
 		}
+		
 		
 	}
 
