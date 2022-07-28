@@ -12,6 +12,10 @@ public class WorkingWithInheritance {
 		System.out.println(hr.name);
 		hr.conductInterview();
 		
+		System.out.println(hr instanceof HRExecutive); // check whether hr is an instance of HRExecutive --> true
+		System.out.println(hr instanceof Interviewer); // true
+		System.out.println(hr instanceof AnEmployee); // true
+		
 		// (2) access fields and methods using a reference variable of AnEmployee
 		//reference     	object
 		AnEmployee emp = new HRExecutive();
@@ -19,20 +23,15 @@ public class WorkingWithInheritance {
 		emp.name = "John"; 		// this does work because the reference variable emp has access to the member "name" defined in AnEmployee
 		//emp.conductInterview() 	does not work because the reference variable emp cannot access the member "conductInterview()" defined in Interview
 		
-		//HRExecutive hr2 = new AnEmployee();  does not work because you cannot refer to an object of a base class by using a reference variable of its derived class
-		//HRExecutive hr2 = new Interviewer();
-		HRExecutive hr2 = (HRExecutive) new AnEmployee();
-		hr2.specialization = new String[] { "Organising" };
-		System.out.println(hr2.specialization);
-		hr2.name = "Harry";
-		System.out.println(hr2.name);
-		hr2.conductInterview();
-		// because of the cast, AnEmployee is now of the type HRExecutive, so it has access to all members that HRExecutive has access to
-		
 		
 		// (3) access fields and methods using the interface reference variable
 		//Interviewer inter = new Interviewer(); // does not work because you cannot instantiate an interface
+		//HRExecutive hr = new Interview(); // same reasoning, cannot create an object of an interface
 		Interviewer inter = new HRExecutive();
+		System.out.println(inter instanceof HRExecutive); // true
+		System.out.println(inter instanceof Interviewer); // true
+		System.out.println(inter instanceof AnEmployee); // true
+		
 		// inter.specialization = new String[] { "Staffing" }; // does not work because the reference variable inter cannot access the member "specialization" defined in HRExecutive
 		//inter.name = "Mona"									//  same reasoning as above
 		inter.conductInterview(); // this does work because the reference variable inter has access to the member "conductInterview()" defined in Interview

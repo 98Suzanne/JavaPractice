@@ -1,4 +1,5 @@
 
+
 public class Count {
 	
 	public void CountAll(String x) {
